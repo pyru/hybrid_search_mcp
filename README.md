@@ -36,7 +36,7 @@ push_to_prefab (MCP Tool 3) ×4
     Card 3 – B2B / Auto Parts Retailers
     Card 4 – Best Pick & Summary  ← Gemini-generated recommendation
 ```
-
+https://youtu.be/EZz9Bx5FsMc
 ---
 
 ## Project layout
