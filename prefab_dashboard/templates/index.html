@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prefab Dashboard · MCP Agent</title>
+  <style>
+    /* ── Design tokens — warm orange light theme ── */
+    :root {
+      --bg0:     #fff8f0;
+      --bg1:     #ffffff;
+      --bg2:     #fff1e0;
+      --bg3:     #ffe4c4;
+      --border:  #f0d4b0;
+      --shadow:  rgba(180, 100, 20, 0.09);
+
+      --text0:   #1c0f00;
+      --text1:   #6b4226;
+      --text2:   #a07850;
+
+      --orange:  #e8820c;
+      --amber:   #f59e0b;
+      --red:     #dc2626;
+      --green:   #16a34a;
+      --blue:    #2563eb;
+      --purple:  #7c3aed;
+      --cyan:    #0891b2;
+
+      --r: 12px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: var(--bg0);
+      color: var(--text0);
+      min-height: 100vh;
+      font-size: 14px;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: #ffffff;
+      border-bottom: 2px solid var(--border);
+      box-shadow: 0 2px 12px var(--shadow);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+      height: 62px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 14px; }
+    .brand-chip {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--orange), var(--amber));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 3px 10px rgba(232,130,12,.35);
+    }
+    .brand-name {
+      font-size: 16px; font-weight: 800; letter-spacing: -.3px;
+      color: var(--text0);
+    }
+    .brand-sub  { font-size: 11px; color: var(--text1); margin-top: 1px; }
+
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+
+    .live-badge {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; color: var(--text1);
+      background: var(--bg2);
+      padding: 5px 12px; border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      animation: blink 1.8s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    .btn {
+      background: var(--bg2); border: 1px solid var(--border);
+      color: var(--text0); border-radius: 8px;
+      padding: 7px 16px; font-size: 12px; font-weight: 600;
+      cursor: pointer; transition: background .15s, box-shadow .15s;
+    }
+    .btn:hover { background: var(--bg3); box-shadow: 0 2px 6px var(--shadow); }
+    .btn-danger { border-color: #fca5a5; color: var(--red); background: #fff5f5; }
+    .btn-danger:hover { background: #fee2e2; }
+
+    /* ── Query bar ── */
+    .query-bar {
+      background: linear-gradient(to right, #fff5e6, #fffaf4);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 28px;
+      display: flex; gap: 12px; align-items: center;
+    }
+    .query-label {
+      font-size: 12px; font-weight: 700; color: var(--orange);
+      text-transform: uppercase; letter-spacing: .06em;
+      white-space: nowrap;
+    }
+    .query-input {
+      flex: 1;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      color: var(--text0);
+      font-size: 14px;
+      padding: 10px 16px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      box-shadow: inset 0 1px 3px rgba(180,100,20,.06);
+    }
+    .query-input::placeholder { color: var(--text2); }
+    .query-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(232,130,12,.12), inset 0 1px 3px rgba(180,100,20,.06);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), var(--amber));
+      border: none;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 10px 22px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity .15s, box-shadow .15s;
+      box-shadow: 0 3px 10px rgba(232,130,12,.35);
+    }
+    .btn-primary:hover { opacity: .9; box-shadow: 0 4px 14px rgba(232,130,12,.45); }
+    .btn-primary:disabled { opacity: .45; cursor: default; box-shadow: none; }
+
+    /* ── Layout ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 308px;
+      gap: 22px;
+      padding: 22px 28px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 11px; text-transform: uppercase;
+      letter-spacing: .09em; color: var(--text1);
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::before {
+      content: "";
+      display: inline-block;
+      width: 3px; height: 14px;
+      background: linear-gradient(to bottom, var(--orange), var(--amber));
+      border-radius: 2px;
+    }
+
+    /* ── Cards grid ── */
+    .cards-grid { display: flex; flex-direction: column; gap: 16px; }
+
+    /* ── Empty state ── */
+    .empty {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 12px;
+      padding: 80px 20px;
+      color: var(--text1); text-align: center;
+      background: white;
+      border: 1.5px dashed var(--border);
+      border-radius: var(--r);
+    }
+    .empty-icon { font-size: 52px; opacity: .5; }
+    .empty h3 { font-size: 15px; font-weight: 700; color: var(--text0); }
+    .empty p  { font-size: 13px; max-width: 320px; line-height: 1.65; color: var(--text1); }
+    .empty code {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 5px; padding: 1px 7px; font-size: 11px; color: var(--orange);
+    }
+
+    /* ── Individual card ── */
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: 0 2px 10px var(--shadow);
+      transition: box-shadow .2s, transform .2s;
+      animation: rise .25s ease;
+    }
+    .card:hover {
+      box-shadow: 0 6px 20px rgba(180,100,20,.14);
+      transform: translateY(-1px);
+    }
+    @keyframes rise { from{opacity:0;transform:translateY(-10px)} to{opacity:1;transform:none} }
+
+    .card-accent {
+      height: 4px;
+      background: linear-gradient(to right, var(--blue), #60a5fa);
+    }
+    .card-accent.success  { background: linear-gradient(to right, var(--green), #4ade80); }
+    .card-accent.warning  { background: linear-gradient(to right, var(--orange), var(--amber)); }
+    .card-accent.data     { background: linear-gradient(to right, var(--purple), #a78bfa); }
+    .card-accent.search   { background: linear-gradient(to right, var(--cyan), #22d3ee); }
+    .card-accent.error    { background: linear-gradient(to right, var(--red), #f87171); }
+
+    .card-inner { padding: 18px 20px; }
+
+    .card-head {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; margin-bottom: 10px; gap: 10px;
+    }
+    .card-title { font-size: 14px; font-weight: 700; line-height: 1.35; color: var(--text0); }
+
+    .tag {
+      font-size: 10px; padding: 3px 10px; border-radius: 20px;
+      text-transform: uppercase; font-weight: 700;
+      letter-spacing: .06em; white-space: nowrap; flex-shrink: 0;
+    }
+    .tag-info    { background: #dbeafe; color: #1d4ed8; }
+    .tag-success { background: #dcfce7; color: #15803d; }
+    .tag-warning { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+    .tag-data    { background: #ede9fe; color: #6d28d9; }
+    .tag-search  { background: #cffafe; color: #0e7490; }
+    .tag-error   { background: #fee2e2; color: #b91c1c; }
+
+    .card-body {
+      font-size: 13px; color: var(--text1); line-height: 1.8;
+      white-space: pre-wrap; word-break: break-word;
+    }
+
+    .card-meta {
+      margin-top: 14px; padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+    .meta-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .meta-table td {
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--bg2);
+      vertical-align: top;
+    }
+    .meta-table td:first-child {
+      color: var(--text1); font-weight: 600;
+      width: 36%; background: var(--bg2);
+      border-radius: 4px 0 0 4px;
+    }
+    .meta-table td:last-child  { color: var(--text0); }
+    .meta-table tr:last-child td { border-bottom: none; }
+
+    .card-foot {
+      font-size: 11px; color: var(--text2);
+      margin-top: 12px; display: flex; align-items: center; gap: 5px;
+    }
+    .card-foot::before {
+      content: ""; display: inline-block;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--border);
+    }
+
+    /* ── Sidebar ── */
+    .sidebar { display: flex; flex-direction: column; gap: 16px; }
+
+    .panel {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px 18px;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+    .panel-title {
+      font-size: 10px; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--orange);
+      font-weight: 800; margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--bg2);
+    }
+
+    /* current query */
+    .query-pill {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--text0);
+      line-height: 1.5;
+      word-break: break-word;
+    }
+    .query-pill.empty-q {
+      color: var(--text2);
+      font-style: italic;
+    }
+
+    /* stats */
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .stat {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 10px; text-align: center;
+    }
+    .stat-val {
+      font-size: 28px; font-weight: 800;
+      background: linear-gradient(135deg, var(--orange), var(--amber));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .stat-lbl { font-size: 11px; color: var(--text1); margin-top: 4px; font-weight: 600; }
+
+    /* tools list */
+    .tool-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--bg2);
+      font-size: 12px;
+    }
+    .tool-row:last-child { border-bottom: none; }
+    .tool-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
+    }
+    .tool-name { font-weight: 700; color: var(--text0); }
+    .tool-desc { font-size: 11px; color: var(--text1); margin-top: 1px; }
+
+    /* activity */
+    .activity-item {
+      display: flex; gap: 10px; padding: 7px 0;
+      border-bottom: 1px solid var(--bg2); font-size: 12px;
+      align-items: flex-start;
+    }
+    .activity-item:last-child { border-bottom: none; }
+    .act-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--orange); flex-shrink: 0; margin-top: 4px;
+    }
+    .act-msg  { color: var(--text1); line-height: 1.45; }
+    .act-time { font-size: 10px; color: var(--text2); margin-top: 2px; }
+
+    /* instructions */
+    .instructions pre {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 12px 14px;
+      font-size: 11px; color: var(--text1);
+      white-space: pre-wrap; line-height: 1.6;
+      font-family: "SFMono-Regular", Consolas, monospace;
+    }
+
+    /* sample queries */
+    .sample-queries { display: flex; flex-direction: column; gap: 6px; }
+    .sample-chip {
+      display: block; width: 100%;
+      text-align: left;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 12px; color: var(--text1);
+      cursor: pointer; line-height: 1.4;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .sample-chip:hover {
+      background: #fff7ed;
+      border-color: var(--orange);
+      color: var(--text0);
+    }
+
+    /* footer note */
+    .footer-note {
+      font-size: 11px; color: var(--text2);
+      text-align: center; padding: 4px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-chip">🔶</div>
+    <div>
+      <div class="brand-name">Prefab Dashboard</div>
+      <div class="brand-sub">MCP Agent Intelligence Layer</div>
+    </div>
+  </div>
+  <div class="topbar-right">
+    <div class="live-badge">
+      <div class="live-dot" id="liveDot"></div>
+      <span id="liveText">Connecting…</span>
+    </div>
+    <button class="btn" onclick="fetchData()">↺ Refresh</button>
+    <button class="btn btn-danger" onclick="resetDash()">Reset</button>
+  </div>
+</header>
+
+<!-- Query bar -->
+<div class="query-bar">
+  <span class="query-label">Query</span>
+  <input
+    id="queryInput"
+    class="query-input"
+    type="text"
+    placeholder="e.g. My Honda Civic brakes are making squealing noise"
+    onkeydown="if(event.key==='Enter') submitQuery()"
+  />
+  <button id="queryBtn" class="btn-primary" onclick="submitQuery()">▶ Run Query</button>
+</div>
+
+<!-- Main layout -->
+<div class="layout">
+
+  <!-- Left: cards -->
+  <div>
+    <div class="section-label">Agent Output &mdash; <span id="cardCount">0</span> card(s)</div>
+    <div class="cards-grid" id="cardsGrid">
+      <div class="empty">
+        <div class="empty-icon">📡</div>
+        <h3>Waiting for MCP Agent</h3>
+        <p>Cards appear here when the agent calls <code>push_to_prefab</code>.<br/>
+           Start the MCP server and run the demo prompt.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: sidebar -->
+  <aside class="sidebar">
+
+    <!-- Sample queries -->
+    <div class="panel">
+      <div class="panel-title">Sample Queries</div>
+      <div class="sample-queries">
+        <button class="sample-chip" onclick="useQuery(this)">My Honda Civic brakes are making squealing noise</button>
+        <button class="sample-chip" onclick="useQuery(this)">Toyota Camry engine oil leaking from the bottom</button>
+        <button class="sample-chip" onclick="useQuery(this)">Ford F-150 battery won't hold a charge</button>
+        <button class="sample-chip" onclick="useQuery(this)">BMW 3 Series AC not blowing cold air</button>
+        <button class="sample-chip" onclick="useQuery(this)">Chevy Silverado transmission slipping on highway</button>
+        <button class="sample-chip" onclick="useQuery(this)">Nissan Altima check engine light — engine misfiring</button>
+      </div>
+    </div>
+
+    <!-- Current query -->
+    <div class="panel">
+      <div class="panel-title">Current Query</div>
+      <div id="currentQuery" class="query-pill empty-q">No query submitted yet</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="panel">
+      <div class="panel-title">Session Stats</div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-val" id="statCards">0</div>
+          <div class="stat-lbl">Cards</div>
+        </div>
+        <div class="stat">
+          <div class="stat-val" id="statActions">0</div>
+          <div class="stat-lbl">Actions</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MCP tools -->
+    <div class="panel">
+      <div class="panel-title">MCP Tools</div>
+
+      <div class="tool-row">
+        <div class="tool-icon" style="background:#dbeafe">🌐</div>
+        <div>
+          <div class="tool-name">search_web</div>
+          <div class="tool-desc">DuckDuckGo internet search</div>
+        </div>
+      </div>
+
+      <div class="tool-row">
+        <div class="tool-icon" style="background:#ede9fe">📁</div>
+        <div>
+          <div class="tool-name">crud_file</div>
+          <div class="tool-desc">create / read / update / delete files</div>
+        </div>
+      </div>
+
+      <div class="tool-row">
+        <div class="tool-icon" style="background:#fff7ed">📊</div>
+        <div>
+          <div class="tool-name">push_to_prefab</div>
+          <div class="tool-desc">Publish cards to this dashboard</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity log -->
+    <div class="panel">
+      <div class="panel-title">Activity Log</div>
+      <div id="activityLog">
+        <div style="font-size:12px;color:var(--text2);text-align:center;padding:18px 0;font-style:italic">
+          No activity yet
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick-start -->
+    <div class="panel instructions">
+      <div class="panel-title">Quick Start</div>
+      <pre># 1 — Start this dashboard
+python prefab_dashboard/server.py
+
+# 2 — Register MCP in Claude config
+# See claude_mcp_config.json
+
+# 3 — Run the demo prompt
+# See demo_prompt.md</pre>
+    </div>
+
+    <!-- Last updated -->
+    <div class="footer-note">
+      Last updated: <span id="lastUpdated">—</span>
+    </div>
+
+  </aside>
+</div>
+
+<script>
+  function esc(s) {
+    const d = document.createElement("div");
+    d.appendChild(document.createTextNode(s ?? ""));
+    return d.innerHTML;
+  }
+
+  function relTime(iso) {
+    if (!iso) return "";
+    const ms = Date.now() - new Date(iso).getTime();
+    if (ms < 60000)   return `${Math.round(ms / 1000)}s ago`;
+    if (ms < 3600000) return `${Math.round(ms / 60000)}m ago`;
+    return new Date(iso).toLocaleTimeString();
+  }
+
+  function fmtTime(iso) { return iso ? new Date(iso).toLocaleTimeString() : "—"; }
+
+  function metaTable(meta) {
+    if (!meta || typeof meta !== "object") return "";
+    const rows = Object.entries(meta)
+      .map(([k, v]) => `<tr><td>${esc(k)}</td><td>${esc(
+          typeof v === "object" ? JSON.stringify(v, null, 2) : String(v)
+        )}</td></tr>`)
+      .join("");
+    return `<div class="card-meta"><table class="meta-table">${rows}</table></div>`;
+  }
+
+  function renderCard(c) {
+    const t = (c.type || "info").toLowerCase();
+    return `
+      <div class="card">
+        <div class="card-accent ${t}"></div>
+        <div class="card-inner">
+          <div class="card-head">
+            <div class="card-title">${esc(c.title)}</div>
+            <span class="tag tag-${t}">${esc(t)}</span>
+          </div>
+          <div class="card-body">${esc(c.content)}</div>
+          ${metaTable(c.metadata)}
+          <div class="card-foot">${relTime(c.timestamp)}</div>
+        </div>
+      </div>`;
+  }
+
+  function useQuery(btn) {
+    const input = document.getElementById("queryInput");
+    input.value = btn.textContent.trim();
+    input.focus();
+    submitQuery();
+  }
+
+  async function submitQuery() {
+    const input = document.getElementById("queryInput");
+    const btn   = document.getElementById("queryBtn");
+    const q = input.value.trim();
+    if (!q) return;
+    btn.disabled = true;
+    btn.textContent = "Sending…";
+    try {
+      await fetch("/api/query", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: q })
+      });
+      const cqEl = document.getElementById("currentQuery");
+      cqEl.textContent = q;
+      cqEl.className = "query-pill";
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "▶ Run Query";
+    }
+  }
+
+  async function fetchData() {
+    try {
+      const r   = await fetch("/api/data");
+      const d   = await r.json();
+      const cards = d.cards ?? [];
+      const log   = d.activity_log ?? [];
+
+      const q = d.current_query ?? "";
+      const cqEl = document.getElementById("currentQuery");
+      if (q) {
+        cqEl.textContent = q;
+        cqEl.className = "query-pill";
+        const inp = document.getElementById("queryInput");
+        if (!inp.value) inp.value = q;
+      }
+
+      document.getElementById("cardCount").textContent   = cards.length;
+      document.getElementById("statCards").textContent   = cards.length;
+      document.getElementById("statActions").textContent = log.length;
+      document.getElementById("lastUpdated").textContent = fmtTime(d.last_updated);
+
+      // Cards grid
+      const grid = document.getElementById("cardsGrid");
+      if (cards.length === 0) {
+        grid.innerHTML = `
+          <div class="empty">
+            <div class="empty-icon">📡</div>
+            <h3>Waiting for MCP Agent</h3>
+            <p>Cards appear here when the agent calls <code>push_to_prefab</code>.<br/>
+               Start the MCP server and run the demo prompt.</p>
+          </div>`;
+      } else {
+        grid.innerHTML = cards.map(renderCard).join("");
+      }
+
+      // Activity log
+      const actEl = document.getElementById("activityLog");
+      if (log.length === 0) {
+        actEl.innerHTML = `<div style="font-size:12px;color:var(--text2);text-align:center;padding:18px 0;font-style:italic">No activity yet</div>`;
+      } else {
+        actEl.innerHTML = log.slice(0, 12).map(a => `
+          <div class="activity-item">
+            <div class="act-dot"></div>
+            <div>
+              <div class="act-msg">${esc(a.message)}</div>
+              <div class="act-time">${relTime(a.timestamp)}</div>
+            </div>
+          </div>`).join("");
+      }
+
+      // Live indicator
+      document.getElementById("liveDot").style.background = "var(--green)";
+      document.getElementById("liveText").textContent = "Live";
+
+    } catch {
+      document.getElementById("liveDot").style.background = "var(--red)";
+      document.getElementById("liveText").textContent = "Disconnected";
+    }
+  }
+
+  async function resetDash() {
+    if (!confirm("Clear all cards and activity?")) return;
+    await fetch("/api/reset", { method: "POST" });
+    fetchData();
+  }
+
+  // Auto-refresh every 3 s
+  fetchData();
+  setInterval(fetchData, 3000);
+</script>
+</body>
+</html>

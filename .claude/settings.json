@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp *)",
+      "Bash(python mcp_server.py)",
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python run_demo.py)",
+      "Bash(python -c \"from dotenv import load_dotenv; load_dotenv\\(\\); import os; print\\('GEMINI_MODEL:', os.getenv\\('GEMINI_MODEL'\\)\\); print\\('GEMINI_API_KEY set:', bool\\(os.getenv\\('GEMINI_API_KEY'\\)\\)\\)\")"
+    ]
+  }
+}

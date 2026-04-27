@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "hybrid-search-mcp": {
+      "command": "C:/Users/Admin/AppData/Local/Microsoft/WindowsApps/PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0/python.exe",
+      "args": [
+        "c:/Ramesh_data/2026_Ramesh/TSAI/hybrid_search_prefab/hybrid_search_prefab/mcp_server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "c:/Ramesh_data/2026_Ramesh/TSAI/hybrid_search_prefab/hybrid_search_prefab"
+      }
+    }
+  }
+}
