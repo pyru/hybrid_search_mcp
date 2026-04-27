@@ -54,7 +54,7 @@ hybrid_search_prefab/
 │
 ├── prefab_dashboard/
 │   ├── server.py                 # Flask server  →  http://localhost:5050
-│   ├── templates/index.html      # Dashboard UI (dark theme, auto-refresh 3 s)
+│   ├── templates/index.html      # Dashboard UI (light-orange theme, auto-refresh 3 s, query input)
 │   └── data/dashboard.json       # Shared JSON written by tools, read by dashboard
 │
 ├── data/
@@ -168,6 +168,16 @@ Expected output:
 Switch to **http://localhost:5050** — the four cards appear within seconds.
 Card 4 shows the Gemini-generated recommendation.
 
+### Step 2b — Run any query from the browser (alternative to Step 2)
+
+Instead of re-running `run_demo.py` manually, you can type any query directly
+in the dashboard UI and click **Run Query**. The server spawns the pipeline in
+the background and the four cards update within ~30 seconds.
+
+Six sample queries are pre-loaded as clickable chips (e.g. "My Toyota Camry
+has an oil leak", "Car battery keeps dying overnight"). Click any chip to fill
+the input and submit automatically.
+
 ### Reset between runs
 
 Click **Reset** in the dashboard top-right, or:
@@ -182,6 +192,11 @@ curl -X POST http://localhost:5050/api/reset
 
 Use this when you want Claude to call the tools autonomously in response to a
 natural-language prompt.  Requires the Claude Code CLI.
+
+> **Just want to run a custom query?**  Use the dashboard query input instead
+> (Option A, Step 2b) — no Claude Code or MCP registration required.  Option B
+> is for interactive AI-driven sessions where you want Claude to reason about
+> which tools to call and how to fill their arguments.
 
 ### Step 1 — Start the Prefab dashboard
 
@@ -270,19 +285,23 @@ http://localhost:5050.
 Watch **http://localhost:5050** — cards appear in real time as Claude calls
 `push_to_prefab`. The activity log on the right sidebar records every tool call.
 
+> **Tip:** `product_hint` and `vehicle_info` are optional.  If you omit them,
+> the hybrid search engine (BM25 + semantic) identifies the correct part and
+> vehicle automatically from the natural-language `user_query`.
+
 ---
 
 ## Choosing between Option A and Option B
 
-| | Option A — Standalone | Option B — Claude |
-|-|-----------------------|-------------------|
-| Claude Code CLI needed | No | Yes |
-| MCP registration needed | No | Yes |
-| How it runs | Direct Python function calls | Claude calls the MCP tools |
-| Good for | Quick testing, CI, scripting | Interactive AI-driven sessions |
-| Files used | `run_demo.py` | `mcp_server.py` + `demo_prompt.md` |
+| | Option A — Script | Option A — Dashboard UI | Option B — Claude |
+|-|-------------------|------------------------|-------------------|
+| Claude Code CLI needed | No | No | Yes |
+| MCP registration needed | No | No | Yes |
+| How it runs | `python run_demo.py` | Type query in browser → auto-triggers pipeline | Claude calls MCP tools |
+| Good for | CI, scripting, default demo | Ad-hoc custom queries, quick testing | Interactive AI-driven sessions |
+| Files used | `run_demo.py` | `prefab_dashboard/server.py` | `mcp_server.py` + `demo_prompt.md` |
 
-Both options produce identical output on the dashboard and in `./data/`.
+All three modes produce identical output on the dashboard and in `./data/`.
 
 ---
 
