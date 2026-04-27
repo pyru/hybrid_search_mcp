@@ -7,6 +7,8 @@ Prefab Dashboard server — http://localhost:5050
   POST /api/reset   → clear all cards and activity
 """
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 from flask import Flask, jsonify, render_template, request
@@ -43,6 +45,16 @@ def set_query():
     data = _read()
     data["current_query"] = query
     DATA_FILE.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+    # Spawn the pipeline in the background so the HTTP response returns immediately
+    demo = BASE_DIR.parent / "run_demo.py"
+    subprocess.Popen(
+        [sys.executable, str(demo)],
+        cwd=str(BASE_DIR.parent),
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+
     return jsonify({"status": "ok", "query": query})
 
 

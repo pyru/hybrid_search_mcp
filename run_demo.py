@@ -160,9 +160,9 @@ def step3_dashboard(data: dict, product_hint: str, vehicle_info: str, output_fil
         ),
         card_type="data",
         metadata=json.dumps({
-            "Part":     product_hint,
-            "Vehicle":  vehicle_info,
-            "Method":   "hybrid BM25 + semantic + product_hint",
+            "Part":    data.get("catalog_match", {}).get("name") or product_hint or data["search_query"],
+            "Vehicle": vehicle_info or data.get("catalog_match", {}).get("vehicle_model", ""),
+            "Method":  "hybrid BM25 + semantic" + (" + product_hint" if product_hint else ""),
         }),
     )
     print("         Card 1 pushed: Customer Query & Diagnosis")
@@ -219,16 +219,27 @@ def step3_dashboard(data: dict, product_hint: str, vehicle_info: str, output_fil
 # ── main ───────────────────────────────────────────────────────────────────
 
 def main() -> None:
-    # Read query from dashboard if set, otherwise use the default
-    user_query = _read_dashboard_query() or DEFAULT_QUERY
-    product_hint = DEFAULT_HINT
-    vehicle_info = DEFAULT_VEHICLE
-    output_file  = _slugify(user_query) + ".txt"
+    dashboard_query = _read_dashboard_query()
+
+    if dashboard_query:
+        # Custom query from dashboard UI — let the engine identify part + vehicle
+        user_query   = dashboard_query
+        product_hint = ""
+        vehicle_info = ""
+        source       = "dashboard"
+    else:
+        # No dashboard query — use hardcoded defaults for the Honda Civic demo
+        user_query   = DEFAULT_QUERY
+        product_hint = DEFAULT_HINT
+        vehicle_info = DEFAULT_VEHICLE
+        source       = "default"
+
+    output_file = _slugify(user_query) + ".txt"
 
     print("=" * 60)
     print(" Auto Parts eCommerce Search — Standalone Demo")
     print("=" * 60)
-    print(f" Query source : {'dashboard' if _read_dashboard_query() else 'default'}")
+    print(f" Query source : {source}")
 
     data = step1_search(user_query, product_hint, vehicle_info)
     step2_save(data, output_file)

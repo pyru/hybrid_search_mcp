@@ -1,68 +1,68 @@
 part_id,name,category,vehicle_model,year,symptoms,description
-BRK-2045,Front Brake Pad Set,Brakes,Honda Civic,2020,"squealing, grinding, vibration when braking",Ceramic low-noise brake pads for daily driving
-BRK-2046,Rear Brake Pad Set,Brakes,Honda Civic,2020,"squealing when stopping, reduced braking power",Semi-metallic rear brake pads
-BRK-3102,Brake Rotor Front,Brakes,Toyota Camry,2021,"pulsation in pedal, vibration at highway speeds when braking",Vented cast iron rotor OEM replacement
-BRK-3103,Brake Caliper Front Left,Brakes,Toyota Camry,2021,"brake drag, pulling to one side, uneven pad wear",Remanufactured caliper with bracket
-BRK-4501,Brake Master Cylinder,Brakes,Ford F-150,2022,"spongy brake pedal, pedal sinks to floor, loss of braking",Aluminum master cylinder with reservoir
-BRK-4502,Brake Booster,Brakes,Ford F-150,2022,"hard brake pedal, hissing sound when braking",Vacuum brake booster assembly
-BRK-5601,Brake Line Kit,Brakes,Chevrolet Silverado,2019,"brake fluid leak, soft pedal, low fluid warning",Stainless steel brake line set
-SUS-7781,Front Strut Assembly,Suspension,Toyota Camry,2021,"bouncing over bumps, shaking at high speed, uneven tire wear",Complete strut with coil spring preassembled
-SUS-7782,Rear Shock Absorber,Suspension,Toyota Camry,2021,"bouncy ride, body roll in turns, clunking over bumps",Gas-charged monotube shock
-SUS-8845,Control Arm Front Lower,Suspension,Honda Accord,2020,"clunking noise over bumps, loose steering, tire pulling",Forged aluminum control arm with ball joint
-SUS-8846,Sway Bar Link,Suspension,Honda Accord,2020,"rattling noise over bumps, clunk when turning",Stabilizer bar end link pair
-SUS-9912,Coil Spring Front,Suspension,Ford F-150,2022,"sagging front end, rough ride, bottoming out",Heavy duty coil spring OE replacement
-SUS-9913,Tie Rod End Outer,Suspension,Ford F-150,2022,"loose steering, uneven tire wear, clunking when turning",Greaseable tie rod end
-ENG-3310,Oxygen Sensor Upstream,Engine,Ford F-150,2022,"check engine light, poor fuel economy, rough idle",Heated upstream O2 sensor OEM spec
-ENG-3311,Oxygen Sensor Downstream,Engine,Ford F-150,2022,"check engine light P0141, failed emissions test",Post-catalyst O2 sensor
-ENG-4420,Spark Plug Set,Engine,Toyota Camry,2021,"misfire, rough idle, poor acceleration, engine shaking",Iridium spark plugs set of 4
-ENG-4421,Ignition Coil Pack,Engine,Toyota Camry,2021,"misfire, check engine light, jerking during acceleration",Individual coil-on-plug ignition coil
-ENG-5530,Mass Air Flow Sensor,Engine,Honda Civic,2020,"poor acceleration, stalling, check engine light, black smoke",MAF sensor with housing
-ENG-5531,Throttle Body Assembly,Engine,Honda Civic,2020,"rough idle, hesitation, stalling at stops",Electronic throttle body cleaned and tested
-ENG-6640,Timing Belt Kit,Engine,Subaru Outback,2019,"ticking noise, engine won't start, check engine light",Timing belt with tensioner and water pump
-ENG-6641,Serpentine Belt,Engine,Subaru Outback,2019,"squealing under hood, battery light, power steering loss",EPDM serpentine drive belt
-ENG-7750,Air Filter Engine,Engine,Chevrolet Silverado,2019,"poor fuel economy, weak acceleration, black smoke",High-flow engine air filter
-ENG-7751,Cabin Air Filter,Engine,Chevrolet Silverado,2019,"weak AC airflow, musty smell in cabin, allergies",Activated carbon cabin filter
-ENG-8860,Fuel Pump Assembly,Engine,Ford Mustang,2020,"engine won't start, sputtering, stalling at highway speeds",In-tank fuel pump with sending unit
-ENG-8861,Fuel Injector Set,Engine,Ford Mustang,2020,"rough idle, misfire, poor fuel economy, hard starting",Set of 8 fuel injectors matched flow
-ENG-9970,Water Pump,Engine,Dodge Ram 1500,2021,"engine overheating, coolant leak, whining noise",Cast iron water pump with gasket
-ENG-9971,Thermostat,Engine,Dodge Ram 1500,2021,"overheating, heater not working, check engine light",OE thermostat with housing and seal
-BAT-9001,AGM Battery 12V,Electrical,Universal,2023,"won't start, clicking sound, dim headlights, slow crank",750 CCA AGM battery 3 year warranty
-BAT-9002,Standard Battery 12V,Electrical,Universal,2023,"car won't crank, dashboard lights dim, dead battery",Flooded lead-acid battery 600 CCA
-ELE-1110,Alternator,Electrical,Honda Civic,2020,"battery light on, dim lights, battery keeps dying",130 amp alternator with pulley
-ELE-1111,Starter Motor,Electrical,Honda Civic,2020,"clicking but no crank, grinding when starting, no start",High torque starter OEM replacement
-ELE-2220,Headlight Assembly Left,Electrical,Toyota Camry,2021,"dim headlight, water inside lens, flickering",Halogen headlight with bulb
-ELE-2221,Tail Light Assembly,Electrical,Toyota Camry,2021,"brake light out, turn signal not working, cracked lens",LED tail light OEM fitment
-ELE-3330,Ignition Switch,Electrical,Ford F-150,2022,"key won't turn, no crank, intermittent no start, stalling",Electronic ignition switch with keys
-ELE-4440,Window Regulator Front,Electrical,Chevrolet Silverado,2019,"window won't go up, grinding noise from door, window falls down",Power window regulator with motor
-TIR-5501,All Season Tire 225/65R17,Tires,Universal,2023,"poor traction, long stopping distance, noisy ride",Touring all-season tire 60K mile warranty
-TIR-5502,Performance Tire 245/45R18,Tires,Universal,2023,"poor cornering, soft sidewalls, vibration at speed",Summer ultra high performance tire
-TIR-5503,Winter Tire 215/60R16,Tires,Universal,2023,"skidding on snow, poor ice grip, long braking in winter",Studless snow tire Mountain Snowflake rated
-TRN-6610,Transmission Fluid ATF,Transmission,Universal,2023,"rough shifting, delayed engagement, slipping gears",Full synthetic ATF 1 quart
-TRN-6611,Transmission Filter Kit,Transmission,Ford F-150,2022,"slipping, harsh shifts, burning smell, check engine light",Transmission filter with pan gasket
-TRN-7720,Clutch Kit,Transmission,Honda Civic Si,2020,"clutch slipping, hard to shift, burning smell, pedal sticks",Clutch disc pressure plate and throwout bearing
-TRN-7721,CV Axle Front,Transmission,Toyota Camry,2021,"clicking when turning, vibration during acceleration, grease on wheel",Complete CV axle assembly
-COO-8810,Radiator,Cooling,Honda Accord,2020,"engine overheating, coolant puddle under car, low coolant",Aluminum radiator with plastic tanks
-COO-8811,Radiator Hose Upper,Cooling,Honda Accord,2020,"coolant leak, overheating, steam from engine",Molded upper radiator hose
-COO-8812,Cooling Fan Assembly,Cooling,Honda Accord,2020,"overheating in traffic, AC not cold at idle, fan not running",Dual electric cooling fan with shroud
-EXH-9920,Catalytic Converter,Exhaust,Toyota Prius,2019,"check engine light P0420, failed emissions, rotten egg smell",Direct fit CARB compliant catalytic converter
-EXH-9921,Muffler Assembly,Exhaust,Toyota Prius,2019,"loud exhaust noise, rattling underneath, drone at speed",Stainless steel muffler with clamps
-EXH-9922,Exhaust Manifold Gasket,Exhaust,Ford F-150,2022,"ticking noise from engine, exhaust leak smell, loss of power",Multi-layer steel exhaust gasket
-STR-1010,Power Steering Pump,Steering,Chevrolet Silverado,2019,"whining when turning, hard steering, fluid leak",Remanufactured power steering pump
-STR-1011,Steering Rack,Steering,Chevrolet Silverado,2019,"loose steering, clunking, fluid leak under car, drift",Rack and pinion assembly with inner tie rods
-STR-1012,Wheel Bearing Hub,Steering,Honda Civic,2020,"humming noise at speed, wobble in wheel, ABS light on",Sealed hub assembly with ABS sensor
-HVC-2020,AC Compressor,HVAC,Toyota Camry,2021,"AC not cold, clicking from compressor, refrigerant leak",New AC compressor with clutch
-HVC-2021,AC Condenser,HVAC,Toyota Camry,2021,"warm AC air, high pressure readings, refrigerant leak",Parallel flow AC condenser
-HVC-2022,Heater Core,HVAC,Toyota Camry,2021,"no heat from vents, sweet smell in cabin, foggy windows",Copper brass heater core OE fitment
-HVC-3030,Blower Motor,HVAC,Ford F-150,2022,"no air from vents, squealing from dashboard, intermittent fan",Blower motor with wheel and resistor
-BDY-4040,Side Mirror Left,Body,Honda Civic,2020,"broken mirror, cracked housing, electric adjust not working",Power heated side mirror paintable
-BDY-4041,Door Handle Exterior,Body,Honda Civic,2020,"door won't open from outside, broken handle, loose handle",Exterior door handle paint to match
-BDY-5050,Wiper Blade Set,Body,Universal,2023,"streaking windshield, skipping wipers, torn rubber",Beam style wiper blades pair
-BDY-5051,Windshield Washer Pump,Body,Universal,2023,"no washer fluid spray, weak spray, pump hums but no fluid",12V washer pump universal fit
-SEN-6060,ABS Wheel Speed Sensor,Sensors,Toyota Camry,2021,"ABS light on, traction control light, speedometer not working",Front ABS sensor with harness
-SEN-6061,Camshaft Position Sensor,Sensors,Honda Civic,2020,"no start condition, stalling, check engine light P0340",Hall effect camshaft sensor
-SEN-6062,Crankshaft Position Sensor,Sensors,Ford F-150,2022,"no start, intermittent stalling, check engine light P0335",Magnetic crankshaft position sensor
-SEN-6063,Knock Sensor,Sensors,Chevrolet Silverado,2019,"pinging knocking sound, loss of power, check engine light",Engine knock sensor with harness
-LGT-7070,LED Headlight Bulb H11,Lighting,Universal,2023,"dim headlights, poor night visibility, yellow light output",6000K LED headlight bulb pair
-LGT-7071,Fog Light Assembly,Lighting,Ford F-150,2022,"broken fog lamp, water in housing, bulb out",Clear lens fog light with bulb
-FIL-8080,Oil Filter,Engine,Universal,2023,"dirty oil, low oil pressure warning, engine noise",Full flow spin-on oil filter
-FIL-8081,Fuel Filter,Engine,Ford F-150,2022,"hard starting, loss of power under load, stalling",Inline fuel filter diesel spec
+BRK-2045,Front Brake Pad Set,Brakes,Honda Civic,2020,"squealing noise when braking, grinding, brake wear, brakes worn",OEM ceramic front brake pads for Honda Civic 2020. Eliminates squeal and vibration.
+BRK-2046,Rear Brake Pad Set,Brakes,Honda Civic,2020,"squealing noise when braking, rear brake grinding, brake wear","Rear ceramic brake pads for Honda Civic 2020. Low dust, quiet operation."
+BRK-3102,Brake Rotor Set,Brakes,Ford F-150,2019,"vibration at highway speeds, steering wheel shakes when braking, brake pulsation, grinding noise braking",Vented front brake rotors for Ford F-150 2019. Drilled and slotted for improved heat dissipation.
+BRK-4001,Brake Caliper,Brakes,Toyota Camry,2021,"brake dragging, uneven braking, car pulling to one side, seized caliper",Remanufactured front brake caliper for Toyota Camry 2021.
+BRK-4002,Brake Master Cylinder,Brakes,Chevy Silverado,2020,"soft spongy brake pedal, brake pedal goes to floor, brake fluid leak",OEM replacement brake master cylinder for Chevy Silverado 2020.
+BRK-5010,Drum Brake Shoe Set,Brakes,Honda Civic,2018,"rear squealing, grinding in reverse, parking brake not holding",Rear drum brake shoe kit for Honda Civic 2018.
+BRK-5011,Brake Hose,Brakes,Toyota Camry,2019,"brake fluid leak, soft pedal, cracked brake hose",Reinforced rubber brake hose for Toyota Camry 2019.
+BRK-6020,Parking Brake Cable,Brakes,Ford F-150,2018,"parking brake not holding, handbrake loose, e-brake failure",Stainless steel parking brake cable for Ford F-150 2018.
+BRK-6021,Anti-lock Brake Sensor,Brakes,Chevy Silverado,2019,"ABS warning light on, ABS not working, wheel speed sensor fault",Wheel speed sensor for Chevy Silverado 2019 ABS system.
+BRK-7030,Brake Booster,Brakes,Honda Civic,2017,"hard brake pedal, increased braking effort, brake pedal stiff",Vacuum brake booster for Honda Civic 2017.
+ENG-3310,Oxygen Sensor Upstream,Engine,Ford F-150,2019,"check engine light, poor fuel economy, rough idle, O2 sensor fault P0131 P0133",Upstream oxygen sensor for Ford F-150 2019 5.0L. Restores fuel trim.
+ENG-3311,Oxygen Sensor Downstream,Engine,Ford F-150,2019,"check engine light P0141, oxygen sensor heater failure, failed emissions test",Downstream heated oxygen sensor for Ford F-150 2019.
+ENG-4420,Spark Plug Set,Engine,Toyota Camry,2021,"rough idle, engine misfire, poor acceleration, hard start, spark plug replacement",Iridium spark plug set for Toyota Camry 2021 2.5L. Reduces misfires.
+ENG-5530,Fuel Injector,Engine,Honda Civic,2020,"rough idle, engine misfire, poor fuel economy, hesitation on acceleration",OEM fuel injector for Honda Civic 2020 1.5L turbo.
+ENG-5531,Ignition Coil,Engine,Honda Civic,2020,"engine misfire, rough idle, check engine light P0300, cylinder misfire",Direct ignition coil for Honda Civic 2020. Eliminates misfire and rough idle.
+ENG-9970,Water Pump,Engine,Toyota Camry,2021,"engine overheating, coolant leaking from engine, water pump noise, coolant loss",OEM replacement water pump for Toyota Camry 2021 2.5L. Prevents overheating.
+ENG-9971,Radiator Cap,Engine,Toyota Camry,2021,"engine overheating, coolant boiling over, coolant loss, steam from hood",OEM radiator cap for Toyota Camry 2021. Maintains cooling system pressure.
+ENG-7710,Timing Belt Kit,Engine,Honda Civic,2018,"timing belt worn, engine won't start, valve damage risk",Complete timing belt kit for Honda Civic 2018.
+ENG-7711,Serpentine Belt,Engine,Ford F-150,2020,"squealing belt noise, battery not charging, power steering loss, belt slipping",Serpentine belt for Ford F-150 2020 5.0L.
+ENG-8820,Valve Cover Gasket,Engine,Toyota Camry,2019,"oil leak from top of engine, burning oil smell, oil on spark plugs, toyota oil leak",Valve cover gasket set for Toyota Camry 2019 2.5L. Stops oil leaks.
+ENG-8821,Head Gasket Set,Engine,Ford F-150,2018,"engine overheating, white exhaust smoke, coolant mixing with oil, milky oil",Head gasket set for Ford F-150 2018 5.0L.
+ENG-8830,Engine Air Filter,Engine,Chevy Silverado,2020,"reduced engine power, poor fuel economy, air filter clogged, engine hesitation",High-flow engine air filter for Chevy Silverado 2020 5.3L.
+BAT-9001,12V AGM Car Battery,Battery,Honda Civic,2020,"car won't start, clicking sound when starting, dead battery, battery keeps dying overnight, slow crank",AGM 12V battery for Honda Civic 2020. 500 CCA. Eliminates no-start and clicking.
+BAT-9002,Battery Terminal Clamp Set,Battery,Toyota Camry,2021,"battery keeps dying, clicking sound, loose battery connection, corroded terminals, intermittent electrical failure",Battery terminal clamp set. Fixes loose connections causing clicking and no-start.
+ELE-1110,Alternator,Electrical,Ford F-150,2019,"battery keeps dying overnight, alternator not charging, battery warning light, charging system failure, dim lights",Remanufactured alternator for Ford F-150 2019 5.0L. 150A output. Restores battery charging.
+ELE-1111,Starter Motor,Electrical,Honda Civic,2020,"car won't start, loud clicking sound when turning key, starter failure, no crank",Remanufactured starter motor for Honda Civic 2020. Eliminates no-start and clicking.
+ELE-3330,Crankshaft Position Sensor,Electrical,Ford F-150,2020,"engine stalling, intermittent no start, check engine light P0335, engine won't start intermittent",Crankshaft position sensor for Ford F-150 2020. Resolves stalling and no-start.
+ELE-4440,Window Regulator,Electrical,Chevy Silverado,2020,"window won't roll up, window won't go down, power window failure, window stuck",Power window regulator with motor for Chevy Silverado 2020 driver side.
+ELE-5550,Fuse Box,Electrical,Toyota Camry,2021,"multiple electrical failures, fuses keep blowing, electrical shorts",Interior fuse box assembly for Toyota Camry 2021.
+ELE-5551,Headlight Bulb Set,Electrical,Honda Civic,2019,"headlights dim, headlight out, visibility issues",H11 halogen headlight bulb pair for Honda Civic 2019.
+ELE-6660,Horn,Electrical,Chevy Silverado,2018,"horn not working, horn sounds weak, horn failure",Dual-tone horn kit for Chevy Silverado 2018. 118dB.
+ELE-6661,Turn Signal Switch,Electrical,Ford F-150,2017,"turn signal not canceling, turn signal not working, blinker stuck",Multifunction turn signal switch for Ford F-150 2017.
+HVC-2020,AC Compressor,HVAC,Toyota Camry,2021,"AC not cooling, air conditioning blowing warm air, AC compressor failure, no cold air, AC clutch not engaging",OEM AC compressor for Toyota Camry 2021. Restores full AC cooling.
+HVC-2021,Cabin Air Filter,HVAC,Honda Civic,2020,"AC blowing warm air, reduced airflow from vents, musty smell from AC, poor cabin air quality",HEPA cabin air filter for Honda Civic 2020. Improves AC airflow.
+HVC-3030,Blower Motor,HVAC,Ford F-150,2019,"no air from vents, blower motor not working, HVAC fan failure, only works on high speed",HVAC blower motor for Ford F-150 2019. Restores airflow to all vent settings.
+HVC-3031,Heater Core,HVAC,Chevy Silverado,2020,"no heat inside car, foggy windshield, sweet smell from vents, coolant leak inside cabin",Heater core for Chevy Silverado 2020. Restores cabin heat.
+HVC-4040,AC Condenser,HVAC,Toyota Camry,2019,"AC not cooling, refrigerant leak, AC condenser damaged, air conditioning weak",Aluminum AC condenser for Toyota Camry 2019.
+HVC-4041,AC Refrigerant R-134a,HVAC,Honda Civic,2018,"AC blowing warm air, low refrigerant, AC not cold",R-134a refrigerant recharge kit for Honda Civic 2018.
+SUS-7781,Front Strut Assembly,Suspension,Toyota Camry,2021,"car shakes at highway speeds, vibration at highway speeds, clunking over bumps, strut noise, rough ride",Complete front strut assembly for Toyota Camry 2021. Eliminates vibration and clunking.
+SUS-7782,Rear Strut Assembly,Suspension,Toyota Camry,2021,"car shakes at highway speeds, clunking noise over bumps, rear suspension noise, bouncy ride",Complete rear strut assembly for Toyota Camry 2021. Restores smooth ride.
+SUS-8845,Tie Rod End,Suspension,Ford F-150,2020,"steering feels loose, wandering, loose steering, uneven tire wear",Outer tie rod end for Ford F-150 2020. Eliminates loose wandering steering.
+SUS-8846,Sway Bar Link,Suspension,Honda Civic,2020,"clicking sound when turning, rattling over bumps, sway bar noise",Sway bar end link for Honda Civic 2020. Eliminates rattling and clicking when turning.
+SUS-9913,Power Steering Rack,Suspension,Chevy Silverado,2020,"steering feels loose, power steering leak, wandering, hard to steer",Remanufactured power steering rack for Chevy Silverado 2020.
+STR-1011,Steering Gear Box,Steering,Ford F-150,2018,"steering feels loose, wanders on highway, excessive play in steering wheel",Remanufactured steering gear box for Ford F-150 2018.
+SUS-1120,Ball Joint,Suspension,Toyota Camry,2019,"clunking from front suspension, steering wander, front end noise over bumps",Lower ball joint for Toyota Camry 2019. Heavy-duty forged steel.
+SUS-1121,Control Arm Bushing,Suspension,Honda Civic,2017,"clunking from front end, vibration, suspension noise, control arm bushing worn",Polyurethane control arm bushing set for Honda Civic 2017.
+SUS-2230,Wheel Bearing Hub,Suspension,Chevy Silverado,2019,"humming noise at highway speeds, wheel bearing noise, grinding from wheel, ABS light on",Front wheel bearing hub assembly for Chevy Silverado 2019.
+SUS-2231,Coil Spring,Suspension,Ford F-150,2020,"car sits low, sagging suspension, spring broken, rough ride, bottoming out",Front coil spring for Ford F-150 2020. Restores ride height. Sold in pairs.
+TRN-7721,CV Axle Shaft,Transmission,Honda Civic,2020,"clicking sound when turning, clicking on acceleration, CV joint noise, axle clicking",Remanufactured CV axle shaft for Honda Civic 2020. Eliminates clicking when turning.
+TRN-8832,Transmission Filter,Transmission,Toyota Camry,2021,"transmission slipping, rough shifting, delayed engagement, transmission hesitation",Automatic transmission filter kit for Toyota Camry 2021. Restores smooth shifting.
+TRN-8833,Torque Converter,Transmission,Ford F-150,2019,"transmission shudder, torque converter failure, shaking at low speeds, slipping at highway speeds",Remanufactured torque converter for Ford F-150 2019 6R80.
+TRN-9940,Transfer Case,Transmission,Chevy Silverado,2020,"4WD not engaging, transfer case noise, 4-wheel drive failure, grinding in 4WD",Remanufactured transfer case for Chevy Silverado 2020.
+TRN-9941,Driveshaft,Transmission,Ford F-150,2018,"vibration at highway speeds, driveshaft noise, clunking from underneath",Rear driveshaft for Ford F-150 2018. Balanced and ready to install.
+SEN-6061,Mass Air Flow Sensor,Sensors,Honda Civic,2020,"rough idle, engine misfire, poor acceleration, check engine light, hesitation",Mass air flow sensor for Honda Civic 2020 1.5L. Eliminates rough idle and misfire.
+SEN-6062,Camshaft Position Sensor,Sensors,Ford F-150,2020,"engine stalling, intermittent no start, check engine light P0340, no start intermittent",Camshaft position sensor for Ford F-150 2020. Resolves stalling and no-start.
+SEN-7070,MAP Sensor,Sensors,Toyota Camry,2021,"rough idle, poor fuel economy, check engine light, MAP sensor failure",MAP sensor for Toyota Camry 2021. Restores accurate boost and fuel mapping.
+SEN-7071,Throttle Position Sensor,Sensors,Chevy Silverado,2019,"engine surging, hesitation on acceleration, rough idle, TPS failure",Throttle position sensor for Chevy Silverado 2019 5.3L.
+COO-8810,Radiator,Cooling,Toyota Camry,2021,"engine overheating, coolant leaking from radiator, radiator cracked, coolant loss, coolant leak",All-aluminum radiator for Toyota Camry 2021. 40% more cooling capacity than stock.
+COO-8811,Thermostat,Cooling,Honda Civic,2020,"engine overheating, engine runs cold, thermostat stuck open or closed, slow warm-up",OEM thermostat with housing for Honda Civic 2020 1.5L.
+COO-9920,Radiator Hose Set,Cooling,Ford F-150,2019,"coolant leak, hose cracked, engine overheating, radiator hose burst",Upper and lower radiator hose set for Ford F-150 2019 5.0L.
+COO-9921,Coolant Temperature Sensor,Cooling,Chevy Silverado,2020,"engine overheating warning light, incorrect temperature gauge, check engine light",Coolant temperature sensor for Chevy Silverado 2020.
+COO-1010,Water Outlet Fitting,Cooling,Toyota Camry,2019,"coolant leak from top of engine, water outlet cracked, coolant hose leak",Coolant water outlet housing for Toyota Camry 2019. Replaces cracked plastic fitting.
+EXH-9920,Catalytic Converter,Exhaust,Toyota Camry,2020,"check engine light P0420, catalytic converter failed, failed emissions test, P0420 code",Direct-fit catalytic converter for Toyota Camry 2020. EPA-compliant. Clears P0420.
+EXH-1010,Muffler,Exhaust,Honda Civic,2019,"loud exhaust noise, exhaust hole, muffler rust, exhaust leak, drone",Aluminized steel muffler for Honda Civic 2019. Reduces exhaust noise.
+EXH-1011,Exhaust Manifold Gasket,Exhaust,Ford F-150,2020,"exhaust leak, ticking noise from engine, burning smell, exhaust manifold gasket blown",Exhaust manifold gasket set for Ford F-150 2020 5.0L.
+EXH-2020,Exhaust Flex Pipe,Exhaust,Chevy Silverado,2019,"rattling exhaust, exhaust leak, flex pipe broken, vibration from exhaust",Stainless steel flex pipe for Chevy Silverado 2019. Repairs exhaust leaks.
+EXH-2021,O2 Sensor Bung,Exhaust,Toyota Camry,2018,"check engine light, O2 sensor thread stripped, exhaust leak near sensor",O2 sensor bung weld fitting for Toyota Camry 2018. Repairs stripped sensor threads.
